@@ -64,7 +64,7 @@ class PostController extends Controller
         $post->user_id = $request->user_id;
         $post->save();
 
-        return response()->json("Post updated");
+        return response()->json(["message" => "Post updated"]);
     }
 
     /**

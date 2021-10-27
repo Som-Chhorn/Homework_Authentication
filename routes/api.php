@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\controllers\UserController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -23,10 +23,10 @@ Route::get('/posts/{id}',[PostController::class, 'show']);
 Route::group(["middleware"=>["auth:sanctum"]], function (){
     
     // User
-    Route::post('/users',[UserController::class, 'logout']);
+    Route::post('/logout',[UserController::class, 'logout']);
 
     // Post
-    Route::post('/posts',[PostController::class, 'store']);
+    Route::post('/users',[PostController::class, 'store']);
     Route::put("posts/{id}",[PostController::class,"update"]);
     Route::delete('/posts/{id}',[PostController::class, 'destroy']);
  
